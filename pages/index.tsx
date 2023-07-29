@@ -38,7 +38,12 @@ const App: React.FC = () => {
 
   const handleSendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!inputValue) return;
+
+    handleNewMessage(inputValue);
+  };
+
+  const handleNewMessage = async (messageInput: string) => {
+    if (!messageInput) return;
     if (!aiRef.current) {
       toast.custom(<InstallationToast />, {
         id: "window-ai-not-detected",
@@ -46,10 +51,6 @@ const App: React.FC = () => {
       return;
     }
 
-    handleNewMessage(inputValue);
-  };
-
-  const handleNewMessage = async (messageInput: string) => {
     const userMessage: ChatMessage = { role: "user", content: messageInput };
     //creates a local variable to handle streaming state
     let updatedMessages: ChatMessage[] = [...messages, userMessage];
