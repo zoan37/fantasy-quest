@@ -138,7 +138,7 @@ const App: React.FC = () => {
         <p className="mt-4 mb-4">
           Works best with GPT-4 &#183; <a href="https://github.com/zoan37/fantasy-quest" target="_blank" style={{ color: "#89CFF0" }}>GitHub</a>
         </p>
-        <div className="overflow-y-auto h-full mb-4">
+        <div className="overflow-y-auto mb-4" style={{ height: "36rem" }}>
           {messages.map((message, index) => (
             index === 0 ? (
               <div></div>
